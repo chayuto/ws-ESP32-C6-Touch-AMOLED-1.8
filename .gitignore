@@ -22,6 +22,10 @@ ref/
 # Internal dev notes (not for public)
 /docs/internal/
 
+# Private household context — room layout, occupancy, what each sensor sees.
+# Facts about someone's home, not about the code. Never commit.
+/docs/household/
+
 # Local device configs (real MACs / labels) — keep .template committed
 projects/*/main/device_config.h
 

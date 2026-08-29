@@ -15,6 +15,7 @@ ESP32-C6-Touch-AMOLED-1.8/
 ├── ref/                  # Vendor reference/test code — gitignored, do not modify
 ├── docs/
 │   ├── internal/         # Private dev notes — gitignored
+│   ├── household/        # Private household context — gitignored, see below
 │   └── media/            # Board photos/videos for READMEs
 ├── 0x-*.md               # Research documents (board specs, driver info, etc.)
 ├── CLAUDE.md
@@ -324,6 +325,26 @@ board --3-min buckets--> Supabase (full history) --parquet--> HF dataset
 - Credentials live only in `projects/18_govee_monitor/.env` (gitignored). The
   key in `sdkconfig.defaults` is the INSERT-only one and is deliberately
   powerless.
+
+## Household Context (Project 18)
+
+`docs/household/` holds the private, **gitignored** context that makes the
+readings answerable: which room is which, what each one is like, and the
+conclusions drawn so far. Read it before answering anything of the form "is this
+reading bad" or "should I open a window" — the numbers alone cannot say, because
+the answer depends on which room has no heater and who sleeps where.
+
+- **Never commit it and never quote it outward.** This repo is public. Those are
+  facts about someone's home, not about firmware. `/docs/household/` is in
+  `.gitignore`; do not add exceptions or `git add -f`.
+- `rooms.md` per-room notes, `sensors.md` which sensor is where, `findings.md`
+  dated conclusions with their evidence.
+- Every claim is tagged **measured / told / inferred / unknown**. Respect the
+  tags: an `inferred` claim is challengeable, and the `unknown` list is the
+  standing set of questions worth asking the human.
+- **Reason in absolute humidity (g/m³), never RH.** RH is a ratio against
+  temperature, so a cold room and cold outdoor air both read damp while holding
+  less water. `tools/ventilation.sh` already does this correctly.
 
 ## Firmware Robustness (Standing Rules)
 
