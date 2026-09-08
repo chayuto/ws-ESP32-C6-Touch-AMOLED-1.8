@@ -141,6 +141,12 @@ create index if not exists device_status_ts_idx on device_status (ts desc);
 alter table reading       enable row level security;
 alter table sensor        enable row level security;
 alter table device_status enable row level security;
+-- sensor_label was omitted here originally. With RLS off, the table's default
+-- privileges were the only thing standing between it and any signed-up user,
+-- and default privileges are exactly what this file has already been caught
+-- out by twice. RLS on with no policy is deny-all: nothing but the service key
+-- and a direct Postgres connection reaches it, which is all it ever needed.
+alter table sensor_label  enable row level security;
 
 drop policy if exists reading_device_insert on reading;
 create policy reading_device_insert on reading
@@ -164,8 +170,8 @@ grant insert on table reading       to anon;
 grant insert on table device_status to anon;   -- explicit; do not rely on
                                                -- Supabase's default privileges
 revoke select, update, delete on table reading from anon;
-revoke all on table sensor       from anon;
-revoke all on table sensor_label from anon;
+revoke all on table sensor       from anon, authenticated;
+revoke all on table sensor_label from anon, authenticated;
 
 -- ---------------------------------------------------------------------------
 -- Dashboard rollup: a view, not a second table the device writes. One write
@@ -216,10 +222,21 @@ group by 1, 2, 3, 4, s.placement;
 -- it was created — silently undoing the whole point of a separate dashboard
 -- role. Least privilege here needs an explicit revoke after each create, not
 -- just an absence of grants.
-revoke all on table reading_5m from anon;
-revoke all on table reading_1h from anon;
+--
+-- `anon` was only half the trap. Those same default privileges grant
+-- `authenticated` too, and this project has no application users of its own —
+-- the dashboard authenticates as `dashboard_reader`, not as a signed-up user.
+-- So `authenticated` is only ever whoever Supabase Auth is currently willing
+-- to hand a token to, which is a project setting and not a decision this file
+-- controls. A view runs with its OWNER's privileges, so a leftover grant on
+-- reading_5m/reading_1h reads straight through the RLS on `reading` that is
+-- doing all the work below. Revoke every role we did not deliberately choose,
+-- not just the firmware's one.
+revoke all on table reading_5m from anon, authenticated;
+revoke all on table reading_1h from anon, authenticated;
 -- Same default-privilege trap as the view: revoke explicitly, do not assume.
 revoke select, update, delete on table device_status from anon;
+revoke all on table reading, sensor, device_status from authenticated;
 
 -- ---------------------------------------------------------------------------
 -- Dashboard read role.
