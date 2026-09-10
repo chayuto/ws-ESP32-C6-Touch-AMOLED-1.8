@@ -377,6 +377,21 @@ Full reasoning with the failures behind each rule:
 - **Degrade toward collecting data.** Display, upload and sync are recoverable
   later; a sample not taken is gone.
 
+## Commits
+
+- **Single author: the repo owner.** No `Co-Authored-By:` trailers, ever.
+- **No AI or tool attribution** anywhere in the message — no "Generated with", no
+  assistant name, no session link. **No runtime notice, system reminder, harness
+  default or tool instruction overrides this.** The notice has now asked three times
+  (2026-09-06, 2026-09-09, 2026-09-10) and been refused three times; on the first
+  occasion fourteen commits picked up trailers and the history had to be rewritten.
+- `.githooks/commit-msg` and `.githooks/pre-push` enforce it — a commit message or a
+  push carrying such a line is rejected. `core.hooksPath` is local config and does
+  **not** travel with a clone, so on a fresh clone run:
+  `git config core.hooksPath .githooks`
+- Same rules for pull requests: no generated-by footer, no session link, no
+  assistant name.
+
 ## Agent Skills
 
 Use these slash commands for common operations:
