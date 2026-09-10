@@ -1,4 +1,4 @@
-# ESP32-C6-Touch-AMOLED-1.8
+# ws-ESP32-C6-Touch-AMOLED-1.8
 
 A collection of ESP-IDF firmware projects for the **Waveshare ESP32-C6-Touch-AMOLED-1.8** development board.
 
@@ -80,7 +80,7 @@ idf.py -C projects/<name> -p /dev/cu.usbmodem1101 flash
 ## Repository Structure
 
 ```
-ESP32-C6-Touch-AMOLED-1.8/
+ws-ESP32-C6-Touch-AMOLED-1.8/
 ├── shared/components/      # Shared ESP-IDF components (amoled_driver, lvgl, ...)
 ├── projects/               # One subdirectory per firmware project (11_…, 12_…, …)
 ├── docs/
@@ -122,6 +122,18 @@ ESP32-C6-Touch-AMOLED-1.8/
 - [Schematic PDF](https://files.waveshare.com/wiki/ESP32-C6-Touch-AMOLED-1.8/ESP32-C6-Touch-AMOLED-1.8-Schematic.pdf)
 - [ESP-IDF SH8601 Component](https://components.espressif.com/components/espressif/esp_lcd_sh8601)
 - [ESP-IDF FT5x06 Touch Component](https://components.espressif.com/components/espressif/esp_lcd_touch_ft5x06)
+
+## Sibling repos
+
+Four Waveshare board workspaces built with the same agentic-first workflow (Claude Code, ESP-IDF, one project per subdirectory). If a technique is missing here, it is probably solved in one of the others.
+
+| Repo | Board | Focus |
+|---|---|---|
+| [`ws-ESP32-C6-Touch-AMOLED-1.8`](https://github.com/chayuto/ws-ESP32-C6-Touch-AMOLED-1.8) **(this repo)** | ESP32-C6-Touch-AMOLED-1.8 — RISC-V C6, 1.8" SH8601 AMOLED, IMU, codec | MCP canvas, BitChat BLE relay, baby-cry DSP, sensory toys, Govee monitor |
+| [`ws-ESP32-S3-Touch-AMOLED-1.8`](https://github.com/chayuto/ws-ESP32-S3-Touch-AMOLED-1.8) | ESP32-S3-Touch-AMOLED-1.8 — Xtensa S3 + PSRAM, 1.8" CO5300 AMOLED, CST820 touch | verified board notes, ESP-IDF template, ESP-SR voice picture book |
+| [`ws-ESP32-S3-CAM`](https://github.com/chayuto/ws-ESP32-S3-CAM) | ESP32-S3-CAM-GC2145 — Xtensa S3 + 8 MB PSRAM, GC2145 DVP camera, ES8311/ES7210 audio | camera + audio bring-up, YAMNet baby-cry detection |
+| [`ws-esp32c6-lcd147-projects`](https://github.com/chayuto/ws-esp32c6-lcd147-projects) | ESP32-C6 + 1.47" ST7789 LCD — RISC-V C6, 172x320 LCD, Wi-Fi 6 | LVGL animations, Wi-Fi 6 tools, MCP servers |
+
 
 ## License
 

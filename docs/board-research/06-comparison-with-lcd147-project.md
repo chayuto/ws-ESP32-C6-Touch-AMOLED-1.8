@@ -1,7 +1,7 @@
 # Comparison: ESP32-C6-Touch-AMOLED-1.8 vs ESP32-C6-LCD-1.47
 
 ## Reference Project
-Comparable project: [esp32c6-lcd147-projects](https://github.com/chayuto/esp32c6-lcd147-projects)
+Comparable project: [ws-esp32c6-lcd147-projects](https://github.com/chayuto/ws-esp32c6-lcd147-projects)
 
 ## Board Differences
 

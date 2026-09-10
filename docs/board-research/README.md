@@ -27,7 +27,7 @@ research behind it.
 | 03 | [Community Projects](03-community-projects-and-resources.md) | GitHub repos, articles, comparable boards |
 | 04 | [Display & Touch Drivers](04-display-touch-drivers.md) | SH8601 QSPI, FT3168 I2C, library support matrix |
 | 05 | [Development Setup Guide](05-development-setup-guide.md) | Arduino, PlatformIO, ESP-IDF, MicroPython, ESPHome, LVGL |
-| 06 | [Comparison with LCD-1.47](06-comparison-with-lcd147-project.md) | Side-by-side with [esp32c6-lcd147-projects](https://github.com/chayuto/esp32c6-lcd147-projects) |
+| 06 | [Comparison with LCD-1.47](06-comparison-with-lcd147-project.md) | Side-by-side with [ws-esp32c6-lcd147-projects](https://github.com/chayuto/ws-esp32c6-lcd147-projects) |
 | 07 | [Complete GPIO & IO Map](07-complete-gpio-and-io-map.md) | Every GPIO assignment, pin_config.h, free pin analysis |
 | 08 | [I2C Bus & Peripherals](08-i2c-bus-and-peripherals.md) | All 6 I2C devices, power architecture, init sequence |
 | 10 | [RTC & Audio Peripherals](10-rtc-audio-peripherals.md) | PCF85063 RTC, ES8311 audio codec, XiaoZhi AI |

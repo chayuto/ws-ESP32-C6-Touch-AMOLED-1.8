@@ -215,4 +215,4 @@ This is project 16 in a series on this board. The relay works, but there's more 
 
 ---
 
-*The full source code for this project (and 15 others on the same board) is at [ESP32-C6-Touch-AMOLED-1.8](https://github.com/chayut/ESP32-C6-Touch-AMOLED-1.8) on GitHub.*
+*The full source code for this project (and 15 others on the same board) is at [ws-ESP32-C6-Touch-AMOLED-1.8](https://github.com/chayuto/ws-ESP32-C6-Touch-AMOLED-1.8) on GitHub.*

@@ -1,4 +1,4 @@
-# CLAUDE.md — ESP32-C6-Touch-AMOLED-1.8
+# CLAUDE.md — ws-ESP32-C6-Touch-AMOLED-1.8
 
 ## Project Overview
 
@@ -9,7 +9,7 @@ Research documents and board reference data live in the repo root as numbered ma
 ## Repo Structure
 
 ```
-ESP32-C6-Touch-AMOLED-1.8/
+ws-ESP32-C6-Touch-AMOLED-1.8/
 ├── shared/components/    # Shared: amoled_driver, lvgl__lvgl, etc.
 ├── projects/             # One subdirectory per project
 ├── ref/                  # Vendor reference/test code — gitignored, do not modify

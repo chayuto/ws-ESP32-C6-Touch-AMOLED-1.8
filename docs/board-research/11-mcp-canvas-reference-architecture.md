@@ -1,6 +1,6 @@
 # MCP Canvas Reference Architecture (LCD-1.47 Project 11)
 
-Source: [esp32c6-lcd147-projects](https://github.com/chayuto/esp32c6-lcd147-projects) — `projects/11_mcp_server_display/`
+Source: [ws-esp32c6-lcd147-projects](https://github.com/chayuto/ws-esp32c6-lcd147-projects) — `projects/11_mcp_server_display/`
 
 ## System Overview
 
